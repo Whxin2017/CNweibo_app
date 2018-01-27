@@ -1,0 +1,24 @@
+<%provide(:title,'注册')%>
+<h1>注册</h1>
+
+<div class = "row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for(@user) do |f| %>
+			<%=render 'shared/error_messages',object: f.object %>
+
+			<%= f.label :用户名 %>
+			<%= f.text_field :name ,class: 'form_control'%>
+
+			<%= f.label :邮箱 %>
+			<%= f.email_field :email ,class: 'form_control'%>
+
+			<%= f.label :密码 %>
+			<%= f.password_field :password ,class: 'form_control'%>
+
+			<%= f.label :再次输入密码 %>
+			<%= f.password_field :password_confirmation ,class: 'form_control'%>
+
+			<%= f.submit "创建", class:"btn btn-primary" %>
+		<%end%>
+	</div>
+</div>
