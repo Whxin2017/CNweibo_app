@@ -61,6 +61,19 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
+    ActionMailer::Base.delivery_method = :smtp  
+    config.action_mailer.perform_deliveries = true  
+    config.action_mailer.raise_delivery_errors = true  
+    config.action_mailer.default :charset => "utf-8"  
+    ActionMailer::Base.smtp_settings = {    
+		:address => "smtp.qq.com", #邮件服务器地址 
+        :port => 25,  
+		:domain => "qq.com", #服务器域名，如xxx@yeah.net域名就是yeah.net
+        :authentication => :login,   
+        :user_name => "535150404",  #邮件用户名，如xxx@yeah.net用户名就是xxx
+        :password => "znzoazrwluudbgha",  #与登录密码不同，此处是客户端授权密码，切记！
+  }
+  
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
