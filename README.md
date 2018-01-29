@@ -3,7 +3,7 @@
 
 这是一款关于微博的应用，该应用包括用户、微博功能，以及完整的登陆和用户身份验证系统。
 
-###目前功能：
+### 目前功能：
 
 * 注册功能，用户设置用户名、邮箱密码来注册属于自己的微博号
 * 登陆功能，用户通过邮箱密码登陆自己的微博号,包括管理员、普通用户
@@ -12,14 +12,14 @@
 * 微博功能，用户可上传文字和图片发布微博，也可看到其他用户的微博
 * 关注用户，用户之间可相互关注
 
-###截图：
+### 截图：
 <img src="/lib/show_1.png" width="700">
 <img src="/lib/show_2.png" width="700">
 <img src="/lib/show_3.png" width="700">
 <img src="/lib/show_4.png" width="700">
 
 
-###安装：
+### 安装：
 
 rails -version 5.1.2   
 
@@ -48,7 +48,7 @@ $ rails server
 
 在浏览器中输入`localhost:3000`访问主页
 
-##使用
+## 使用
 1.管理员登陆：
 
 账号： `whxin1994@gmail.com`
@@ -56,8 +56,8 @@ $ rails server
 
 2.普通用户注册登陆
 
-#cloud9部署
-
+# cloud9部署
+ 
 https://cnweibo-app-whxin1994.cs50.io
 
 ##本地测试
@@ -76,7 +76,7 @@ Finished in 3.137166s, 18.1693 runs/s, 84.4711 assertions/s.
 57 runs, 265 assertions, 0 failures, 0 errors, 0 skips
 ```
 
-###控制器测试
+### 控制器测试
 以主页面的控制器为例，位于`test/controllers/static_pages_controller_test.rb`,首先生成一个@base_title对象，测试点击此控制器是否会跳转至主页，使用assert_select检测当前页面是否有此控制器。
 
 ```
@@ -112,7 +112,7 @@ class UserTest < ActiveSupport::TestCase
 end
 ```
 
-###集成测试
+### 集成测试
 
 以用户登录为例，位于`test/integration/user_login_test.rb`，首先同样生成一个@user模型，这个@user的用户名和密码可以在`test/fixtures/users.yml`中指定, 然后我们用get方法到达登录页面（sessions_login_path），然后使用post方法提交这个@user的账号密码来登录，如果登录成功，当前应该会跳转至homes控制器下的index方法进行处理，`assert_redirected_to`能判断这个跳转过程是否发生，然后调用`follow_redirect！`来紧跟当前的跳转，用`assert_template`来判读跳转后的视图文件是否为`homes/index`, 最后在这个视图文件下做一些测试，比如判断这个视图下连接为root_path的个数等等（根据当前登录的角色不同，当前的页面链接会不同，比如admin用户就会有控制面板的链接rails_admin_path，而普通用户没有，因此可以根据链接的个数来判断当前登录用户的角色）
 
