@@ -56,11 +56,11 @@ $ rails server
 
 2.普通用户注册登陆
 
-# cloud9部署
+## cloud9云部署
  
 https://cnweibo-app-whxin1994.cs50.io
 
-##本地测试
+## 本地测试
 
 本项目包含了控制器测试、模型测试、集成测试，测试文件位于/test目录下，一键运行所有测试`rails test`
 
